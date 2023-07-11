@@ -1,6 +1,6 @@
-import mongoose, { Schema, model } from "mongoose";
+const mongoose = require('mongoose');
 
-const jobSchema = new Schema({
+const jobSchema = new mongoose.Schema({
     jobName:{
         type:String,
         required:true 
@@ -8,16 +8,16 @@ const jobSchema = new Schema({
     JobEnvironment:{
         type:String,
         default:"In Office",
-        enum:['In Office','remotly']
+        // enum:['In Office','remotly']
     },
     JobTime:{
         type:String,
         default:"Full Time",
-        enum:['Full Time','Part Time']
+        // enum:['Full Time','Part Time']
     },
     JobResponsability:{
         type:String,
-        enum:['Develop','Design']
+        // enum:['Develop','Design']
     },
     techRequirments:String,
     Requirments:{
@@ -35,5 +35,5 @@ const jobSchema = new Schema({
     timestamps:true
 })
 
-const jobModel = mongoose.models.Job||model('Job',jobSchema)
-export default jobModel
+const jobModel = mongoose.model('Job',jobSchema);
+module.exports = jobModel;

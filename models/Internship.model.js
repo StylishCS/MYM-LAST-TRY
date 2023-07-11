@@ -1,6 +1,6 @@
-import mongoose, { Schema, model } from "mongoose";
+const mongoose = require('mongoose');
 
-const internSchema = new Schema({
+const internSchema = new mongoose.Schema({
     InternshipName:{
         type:String,
         required:true 
@@ -8,25 +8,25 @@ const internSchema = new Schema({
     InternshipEnvironment:{
         type:String,
         default:"In Office",
-        enum:['In Office','remotly']
+        // enum:['In Office','remotly']
     },
     InternshipTime:{
         type:String,
         default:"Full Time",
-        enum:['Full Time','Part Time']
+        // enum:['Full Time','Part Time']
     },
     InternshipResponsability:{
         type:String,
-        enum:['Develop','Design']
+        // enum:['Develop','Design']
     },
     techRequirments:String,
     ApplayedBy:{
-        type:Schema.Types.ObjectId,
+        type:mongoose.Schema.Types.ObjectId,
         ref:"User",
     },
 },{
     timestamps:true
 })
 
-const InternshipModel = mongoose.models.Internships||model('Internship',internSchema)
-export default InternshipModel
+const InternshipModel = mongoose.model('Internship',internSchema);
+module.exports = InternshipModel;

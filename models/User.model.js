@@ -1,6 +1,6 @@
-import mongoose, { Schema, model } from "mongoose";
+const mongoose = require('mongoose');
 
-const userSchema = new Schema({
+const userSchema = new mongoose.Schema({
     FullName:{
         type:String,
         required:true ,
@@ -17,7 +17,7 @@ const userSchema = new Schema({
         required:true
     },
     Phone:{
-        type:String,
+        type:Number,
     },
     EducationalLevel:[String],
     Grade:[String],
@@ -26,23 +26,22 @@ const userSchema = new Schema({
         required:false,
     },
     file:{
-        path:{
-            type:String,
+        data: Buffer,
+        contentType: String,
         },
-        public_id:{
-            type:String,
-        },
-    },
-    DOB:String,
+    DOB:Date,
     internshipId:{
-        type:Schema.Types.ObjectId,
+        type:mongoose.Schema.Types.ObjectId,
         ref:"Internship",
         required:true // TODO : converted to true after first cycle
     },
+    fileUrl: {
+        type: String
+    }
 },{
     timestamps:true
 })
 
 
-const userModel = mongoose.models.User||model('User',userSchema)
-export default userModel
+const userModel = mongoose.model('User',userSchema)
+module.exports = userModel;

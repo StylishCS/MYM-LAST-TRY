@@ -35,16 +35,16 @@ app.use(express.static("uploads"));
 
 app.use('/', homeRouter);
 app.use('/careers', careersRouter);
-// app.use('/contact_us', contact_usRouter);
-// app.use('/protfolio', protfolioRouter);
-// app.use('/services', servicesRouter);
-// app.use('/start_new_product', start_new_productRouter);
-// app.use('/about_us', aboutRouter);
+app.use('/contact_us', contact_usRouter);
+app.use('/protfolio', protfolioRouter);
+app.use('/services', servicesRouter);
+app.use('/start_new_product', start_new_productRouter);
+app.use('/about_us', aboutRouter);
 app.use('/employees', employees);
 app.use('/projects', projects);
-// app.use('/jobs', jobs)
-// app.use('/interns', interns)
-// app.use('/users', users)
+app.use('/jobs', jobs)
+app.use('/interns', interns)
+app.use('/users', users)
 
 
 // catch 404 and forward to error handler
