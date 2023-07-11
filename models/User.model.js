@@ -18,8 +18,12 @@ const userSchema = new mongoose.Schema({
     },
     Phone:{
         type:Number,
+        required:true, 
     },
-    EducationalLevel:[String],
+    EducationalLevel:{
+        type: [String],
+        required:true, 
+    },
     Grade:[String],
     AdditionalInfo:{
         type:String,
@@ -28,6 +32,7 @@ const userSchema = new mongoose.Schema({
     file:{
         data: Buffer,
         contentType: String,
+        required:true, 
         },
     DOB:Date,
     internshipId:{

@@ -1,4 +1,5 @@
 var express = require('express');
+const validation = require('../middleware/validation');
 var router = express.Router();
 const { getHome } = require('../controllers/homeController.js');
 const {getAll, getOwner, getUI, getFrontend, getBackend, getFlutter, postEmployee, updateEmployee, deleteEmployee} = require('../controllers/employeeController.js');
@@ -17,7 +18,7 @@ router.get('/Backend', getBackend);
 router.get('/Flutter', getFlutter);
 
 /* CREATE Employee */
-router.post('/upload_employee', upload.single('image'), postEmployee);
+router.post('/upload_employee', validation() , upload.single('image'), postEmployee);
 
 /* UPDATE Employee */
 router.put('/update_employee/:id', updateEmployee); //by given object ID

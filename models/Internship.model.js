@@ -7,16 +7,19 @@ const internSchema = new mongoose.Schema({
     },
     InternshipEnvironment:{
         type:String,
+        required:true, 
         default:"In Office",
         // enum:['In Office','remotly']
     },
     InternshipTime:{
         type:String,
+        required:true, 
         default:"Full Time",
         // enum:['Full Time','Part Time']
     },
     InternshipResponsability:{
         type:String,
+        required:true, 
         // enum:['Develop','Design']
     },
     techRequirments:String,
