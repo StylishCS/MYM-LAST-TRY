@@ -40,7 +40,7 @@ async function postProject(req, res, next) {
 }
 
 async function updateProject(req, res, next) {
-    const project = await Project.findByIdAndUpdate(req.body.id, {
+    const project = await Project.findByIdAndUpdate(req.params.id, {
         image: req.file.image,
         collectionName: req.body.collectionName
     },
@@ -52,7 +52,7 @@ async function updateProject(req, res, next) {
 }
 
 async function deleteProject(req, res, next) {
-    const project = await Project.findByIdAndRemove(req.body.id);
+    const project = await Project.findByIdAndRemove(req.params.id);
     if(!project) return res.status(404).send('The ID is not found...');
     res.send(project);
 }
