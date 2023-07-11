@@ -9,19 +9,14 @@ const employeeSchema = new mongoose.Schema({
     required: true,
     minlength: 3,
   },
-  age: {
-    type: Number,
-    required: true,
-    min : 18,
-  },
   position: {
     type: String,
     required: true,
     minlength: 3,
   },
-  salary: {
-    type: Number,
-    required: true
+  rule: {
+    type: String,
+    required: true,
   },
   linkedin: {
     type: String,
@@ -33,11 +28,19 @@ const employeeSchema = new mongoose.Schema({
     required: true,
     match: /^https?:\/\/[^\s/$.?#].[^\s]*$/i
   },
-    image:{
-        data: Buffer,
-        contentType: String
-      }
-    });
+  behance: {
+    type: String,
+    required: true,
+    match: /^https?:\/\/[^\s/$.?#].[^\s]*$/i
+  },
+  image:{
+      data: Buffer,
+      contentType: String
+  },
+  imageUrl: {
+    type: String
+  }
+  });
 
 
 const Employee = mongoose.model('Employee', employeeSchema);
